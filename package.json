@@ -25,12 +25,18 @@
   "keywords": [
     "compute.io",
     "compute",
-    "computation"
+    "computation",
+    "statistics",
+    "stats",
+    "quantiles",
+    "percentiles"
   ],
   "bugs": {
     "url": "https://github.com/compute-io/quantiles/issues"
   },
-  "dependencies": {},
+  "dependencies": {
+    "validate.io-integer": "^1.0.0"
+  },
   "devDependencies": {
     "chai": "1.x.x",
     "mocha": "1.x.x",
