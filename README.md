@@ -42,6 +42,25 @@ $ node ./examples/index.js
 ```
 
 
+## Notes
+
+This method returns the 0th and 100th quantiles; a.k.a., the min and the max. For example, when computing the median,
+
+``` javascript
+var data = new Array( 11 );
+
+for ( var i = 0; i < data.length; i++ ) {
+	data[ i ] = i+1;
+}
+
+console.log( quantiles( data, 2 ) );
+// Returns [1,6,11]
+```
+
+the method returns `[1,6,11]`, where `min = 1`, `max = 11`, and `median = 6`. Accordingly, you should expect the output to be an `array` with `length = n + 1`, where `n` is the number of quantiles. 
+
+
+
 ## Tests
 
 ### Unit
