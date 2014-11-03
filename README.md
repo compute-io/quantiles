@@ -65,7 +65,7 @@ $ node ./examples/index.js
 
 ## Notes
 
-1. 	This function returns the 0th and 100th quantiles; a.k.a., the min and the max. For example, when computing the median,
+* 	This function returns the 0th and 100th quantiles; a.k.a., the min and the max. For example, when computing the median,
 
 ``` javascript
 var data = new Array( 11 );
@@ -81,7 +81,7 @@ console.log( quantiles( data, 2 ) );
 the function returns `[1,6,11]`, where `min = 1`, `max = 11`, and `median = 6`. Accordingly, you should expect the output to be an `array` with `length = n + 1`, where `n` is the number of quantiles. 
 
 
-2. 	If provided an unsorted input `array`, the function is `O( q + N log(N) )`, where `q` is the number of quantiles and `N` is the input `array` lenght. If the input `array` is already sorted in __ascending__ order, the function is `O( q )`.
+* 	If provided an unsorted input `array`, the function is `O( q + N log(N) )`, where `q` is the number of quantiles and `N` is the input `array` lenght. If the input `array` is already sorted in __ascending__ order, the function is `O( q )`.
 
 
 ## Tests
