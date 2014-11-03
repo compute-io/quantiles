@@ -78,10 +78,10 @@ console.log( quantiles( data, 2 ) );
 // returns [ 1, 6, 11 ]
 ```
 
-the function returns `[1,6,11]`, where `min = 1`, `max = 11`, and `median = 6`. Accordingly, you should expect the output to be an `array` with `length = n + 1`, where `n` is the number of quantiles. 
+the function returns `[1,6,11]`, where `min = 1`, `max = 11`, and `median = 6`. Accordingly, you should expect the output to be an `array` with `length = q + 1`, where `q` is the number of quantiles. 
 
 
-* 	If provided an unsorted input `array`, the function is `O( q + N log(N) )`, where `q` is the number of quantiles and `N` is the input `array` lenght. If the input `array` is already sorted in __ascending__ order, the function is `O( q )`.
+* 	If provided an unsorted input `array`, the function is `O( q + N log(N) )`, where `q` is the number of quantiles and `N` is the input `array` length. If the input `array` is already sorted in __ascending__ order, the function is `O( q )`.
 
 
 ## Tests
