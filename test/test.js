@@ -1,3 +1,4 @@
+'use strict';
 
 // MODULES //
 
@@ -17,7 +18,6 @@ var expect = chai.expect,
 // TESTS //
 
 describe( 'compute-quantiles', function tests() {
-	'use strict';
 
 	it( 'should export a function', function test() {
 		expect( quantiles ).to.be.a( 'function' );
@@ -68,6 +68,75 @@ describe( 'compute-quantiles', function tests() {
 		}
 	});
 
+	it( 'should throw an error if provided a non-object for the third argument', function test() {
+		var values = [
+			'5',
+			5,
+			[],
+			undefined,
+			null,
+			NaN,
+			function(){},
+			true
+		];
+
+		for ( var i = 0; i < values.length; i++ ) {
+			expect( badValue( values[i] ) ).to.throw( TypeError );
+		}
+
+		function badValue( value ) {
+			return function() {
+				quantiles( [], 1, value );
+			};
+		}
+	});
+
+	it( 'should throw an error if provided a non-boolean sorted flag', function test() {
+		var values = [
+			'5',
+			5,
+			[],
+			undefined,
+			null,
+			NaN,
+			function(){},
+			{}
+		];
+
+		for ( var i = 0; i < values.length; i++ ) {
+			expect( badValue( values[i] ) ).to.throw( TypeError );
+		}
+
+		function badValue( value ) {
+			return function() {
+				quantiles( [], 1, {'sorted': value } );
+			};
+		}
+	});
+
+	it( 'should throw an error if provided a non-string interpolation method', function test() {
+		var values = [
+			true,
+			5,
+			[],
+			undefined,
+			null,
+			NaN,
+			function(){},
+			{}
+		];
+
+		for ( var i = 0; i < values.length; i++ ) {
+			expect( badValue( values[i] ) ).to.throw( TypeError );
+		}
+
+		function badValue( value ) {
+			return function() {
+				quantiles( [], 1, {'method': value } );
+			};
+		}
+	});
+
 	it( 'should compute quantiles', function test() {
 		var data, expected;
 
@@ -90,6 +159,12 @@ describe( 'compute-quantiles', function tests() {
 		expected = [ 1, 6, 11 ];
 
 		assert.deepEqual( quantiles( data, 2 ), expected );
+
+		// Sorted:
+		data = [ 1, 2, 3, 4, 5 ];
+		expected = [ 1, 3, 5 ];
+
+		assert.deepEqual( quantiles( data, 2, {'sorted': true} ), expected );
 	});
 
 });
