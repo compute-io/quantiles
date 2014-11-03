@@ -31,7 +31,7 @@ Computes _q_-quantiles for a numeric `array`.
 var unsorted = [ 4, 2, 5, 3 ];
 
 var q = quantiles( unsorted, 2 );
-// returns [ 2, 2.5, 5 ]
+// returns [ 2, 3.5, 5 ]
 ```
 
 If the input `array` is already sorted in __ascending__ order, set the `sorted` options flag to `true`.
@@ -40,7 +40,7 @@ If the input `array` is already sorted in __ascending__ order, set the `sorted` 
 var sorted = [ 2, 3, 4, 5 ];
 
 var q = quantiles( sorted, 2, {'sorted': true} );
-// returns [ 2, 2.5, 5 ];
+// returns [ 2, 3.5, 5 ];
 ```
 
 
